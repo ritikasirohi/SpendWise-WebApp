@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendWise - Expense Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>SpendWise - Expense Tracker</h2>
+    <form action="/add" method="post">
+        <input type="text" name="name" placeholder="Expense Name" required>
+        <input type="number" name="amount" placeholder="Amount (INR)" required>
+        <button type="submit">Add Expense</button>
+    </form>
+    <h3>Expenses:</h3>
+    <ul>
+        {% for expense in expenses %}
+        <li>{{ expense[1] }} - ₹{{ expense[2] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
